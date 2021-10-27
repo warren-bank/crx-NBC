@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NBC
 // @description  Watch videos in external player.
-// @version      1.0.0
+// @version      1.0.1
 // @match        *://nbc.com/*
 // @match        *://*.nbc.com/*
 // @icon         https://www.nbc.com/generetic/favicon.ico
@@ -311,6 +311,9 @@ var download_video_url = function(contentPid, mpxAccountId, mpxGuid, callback) {
 
       callback(video_url, video_type)
     }
+    else {
+      callback(null, null)
+    }
   }
 
   download_text(url, headers, data, smil_callback)
@@ -498,6 +501,7 @@ var process_video = function(contentPid, mpxAccountId, mpxGuid) {
 var strings = {
   "button_download_video":          "Get Video URL",
   "button_start_video":             "Start Video",
+  "button_unavailable_video":       "Video Is Not Available",
   "episode_labels": {
     "title":                        "title:",
     "episode":                      "episode:",
@@ -737,8 +741,14 @@ var insert_webcast_reloaded_div = function(block_element, video_url, caption_url
 
 var download_video = function(contentPid, mpxAccountId, mpxGuid, block_element, old_button) {
   var callback = function(video_url, video_type) {
-    insert_webcast_reloaded_div(block_element, video_url)
-    add_start_video_button(video_url, video_type, /* caption_url= */ null, block_element, old_button)
+    if (video_url) {
+      insert_webcast_reloaded_div(block_element, video_url)
+      add_start_video_button(video_url, video_type, /* caption_url= */ null, block_element, old_button)
+    }
+    else {
+      old_button.innerHTML = strings.button_unavailable_video
+      old_button.disabled  = true
+    }
   }
 
   download_video_url(contentPid, mpxAccountId, mpxGuid, callback)
