@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NBC
 // @description  Watch videos in external player.
-// @version      1.0.5
+// @version      1.0.6
 // @match        *://nbc.com/*
 // @match        *://*.nbc.com/*
 // @icon         https://www.nbc.com/generetic/favicon.ico
@@ -994,7 +994,8 @@ var process_episodes = function(episodes) {
 var rewrite_show_page = function(show_name, season_number) {
   if (!user_options.common.rewrite_show_pages) return
 
-  if (season_number)
+  // season 0: only downloads the most recent season
+  if ((typeof season_number === 'number') && (season_number >= 0))
     download_episodes(show_name, season_number, process_episodes)
   else
     download_all_episodes(show_name, process_episodes)
