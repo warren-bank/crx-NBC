@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NBC
 // @description  Watch videos in external player.
-// @version      1.0.7
+// @version      1.0.8
 // @match        *://nbc.com/*
 // @match        *://*.nbc.com/*
 // @icon         https://www.nbc.com/generetic/favicon.ico
@@ -968,6 +968,7 @@ var display_episodes = function(episodes) {
 
   add_episode_div_buttons(episodes_div)
 
+  user_options.webmonkey.post_intent_redirect_to_url = null
   state.did_rewrite_dom = true
 }
 
