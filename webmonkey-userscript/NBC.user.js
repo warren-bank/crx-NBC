@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NBC
 // @description  Watch videos in external player.
-// @version      1.0.2
+// @version      1.0.3
 // @match        *://nbc.com/*
 // @match        *://*.nbc.com/*
 // @icon         https://www.nbc.com/generetic/favicon.ico
@@ -957,6 +957,31 @@ var rewrite_show_page = function(show_name, season_number) {
 
 // ----------------------------------------------------------------------------- bootstrap
 
+/*
+ * ======
+ * notes:
+ * ======
+ * - return value is a wrapper function
+ */
+
+var init_on_function_call = function(func, func_this) {
+  return function() {
+    func.apply((func_this || null), arguments)
+
+    init()
+  }
+}
+
+var wrap_history_state_mutations = function() {
+  if (unsafeWindow.history && (typeof unsafeWindow.history.pushState === 'function'))
+    unsafeWindow.history.pushState = init_on_function_call(unsafeWindow.history.pushState, unsafeWindow.history)
+
+  if (unsafeWindow.history && (typeof unsafeWindow.history.replaceState === 'function'))
+    unsafeWindow.history.replaceState = init_on_function_call(unsafeWindow.history.replaceState, unsafeWindow.history)
+}
+
+// -------------------------------------
+
 var init = function() {
   var regex, pathname, matches
   var mpxGuid, show_name, season_number
@@ -990,5 +1015,6 @@ var init = function() {
 }
 
 init()
+wrap_history_state_mutations()
 
 // -----------------------------------------------------------------------------
