@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NBC
 // @description  Watch videos in external player.
-// @version      1.0.3
+// @version      1.0.4
 // @match        *://nbc.com/*
 // @match        *://*.nbc.com/*
 // @icon         https://www.nbc.com/generetic/favicon.ico
@@ -31,6 +31,12 @@ var user_options = {
     "force_http":                   true,
     "force_https":                  false
   }
+}
+
+// ----------------------------------------------------------------------------- state
+
+var state = {
+  "did_rewrite_dom": false
 }
 
 // ----------------------------------------------------------------------------- helpers
@@ -911,6 +917,8 @@ var display_episodes = function(episodes) {
   episodes_div.innerHTML = html
 
   add_episode_div_buttons(episodes_div)
+
+  state.did_rewrite_dom = true
 }
 
 // -------------------------------------
@@ -964,20 +972,30 @@ var rewrite_show_page = function(show_name, season_number) {
  * - return value is a wrapper function
  */
 
-var init_on_function_call = function(func, func_this) {
+var trigger_on_function_call = function(func, func_this, trigger) {
+  if (typeof trigger !== 'function') return func
+
   return function() {
     func.apply((func_this || null), arguments)
 
-    init()
+    trigger()
   }
 }
 
 var wrap_history_state_mutations = function() {
   if (unsafeWindow.history && (typeof unsafeWindow.history.pushState === 'function'))
-    unsafeWindow.history.pushState = init_on_function_call(unsafeWindow.history.pushState, unsafeWindow.history)
+    unsafeWindow.history.pushState = trigger_on_function_call(unsafeWindow.history.pushState, unsafeWindow.history, init)
 
   if (unsafeWindow.history && (typeof unsafeWindow.history.replaceState === 'function'))
-    unsafeWindow.history.replaceState = init_on_function_call(unsafeWindow.history.replaceState, unsafeWindow.history)
+    unsafeWindow.history.replaceState = trigger_on_function_call(unsafeWindow.history.replaceState, unsafeWindow.history, init)
+
+  unsafeWindow.onpopstate = function() {
+    if (state.did_rewrite_dom)
+      unsafeWindow.location.reload()
+  }
+
+  if (unsafeWindow.history && (typeof unsafeWindow.history.back === 'function'))
+    unsafeWindow.history.back = trigger_on_function_call(unsafeWindow.history.back, unsafeWindow.history, unsafeWindow.onpopstate)
 }
 
 // -------------------------------------
