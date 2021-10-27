@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NBC
 // @description  Watch videos in external player.
-// @version      1.0.6
+// @version      1.0.7
 // @match        *://nbc.com/*
 // @match        *://*.nbc.com/*
 // @icon         https://www.nbc.com/generetic/favicon.ico
@@ -192,7 +192,7 @@ var download_episodes = function(show_name, season_number, callback) {
               for (i3=0; i3 < o2.data.items.length; i3++) {
                 o3 = o2.data.items[i3]
 
-                if (o3 && o3.data && !o3.data.locked && (o3.data.programmingType === 'Full Episode')) {
+                if (o3 && o3.data && (o3.data.programmingType === 'Full Episode')) {
                   episodes.push(o3.data)
                 }
               }
@@ -566,6 +566,7 @@ var constants = {
     "div_webcast_icons":            "icons-container"
   },
   "img_urls": {
+    "icon_lock":                    "https://github.com/warren-bank/crx-NBC/raw/webmonkey-userscript/es5/webmonkey-userscript/img/black.lock.outline.png",
     "base_webcast_reloaded_icons":  "https://github.com/warren-bank/crx-webcast-reloaded/raw/gh-pages/chrome_extension/2-release/popup/img/"
   }
 }
@@ -618,13 +619,6 @@ var reinitialize_dom = function() {
       '  text-align: left;',
       '}',
 
-      'a {',
-      '  display: block;',
-      '  margin: 0;',
-      '  color: blue;',
-      '  text-decoration: none;',
-      '}',
-
       // --------------------------------------------------- CSS: episodes
 
       'div.' + constants.dom_classes.div_episodes + ' > ul {',
@@ -648,6 +642,23 @@ var reinitialize_dom = function() {
       'div.' + constants.dom_classes.div_episodes + ' > ul > li > table td:first-child {',
       '  font-style: italic;',
       '  padding-right: 1em;',
+      '}',
+
+      'div.' + constants.dom_classes.div_episodes + ' > ul > li > table td > div.locked {',
+      '  display: inline-block;',
+      '  width:  1em;',
+      '  height: 1em;',
+      '  margin-right: 0.5em;',
+      '  background-image: url("' + constants.img_urls.icon_lock + '");',
+      '  background-repeat: no-repeat;',
+      '  background-size: 100% 100%;',
+      '}',
+
+      'div.' + constants.dom_classes.div_episodes + ' > ul > li > table td > a {',
+      '  display: inline-block;',
+      '  margin: 0;',
+      '  color: blue;',
+      '  text-decoration: none;',
       '}',
 
       'div.' + constants.dom_classes.div_episodes + ' > ul > li > blockquote {',
@@ -871,6 +882,8 @@ var make_episode_listitem_html = function(video) {
 
   if (video.title && video.url)
     video.title = '<a target="_blank" href="' + video.url + '">' + video.title + '</a>'
+  if (video.locked)
+    video.title = '<div class="locked"></div>' + video.title
   if (video.title)
     append_tr([strings.episode_labels.title, video.title])
   if (video.season && video.episode)
@@ -978,6 +991,7 @@ var process_episodes = function(episodes) {
     return {
       mpxAccountId: video.mpxAccountId,
       mpxGuid:      video.mpxGuid,
+      locked:       video.locked,
       url:          video.permalink,
       season:       (video.seasonNumber  ? parseInt(video.seasonNumber,  10)              : 0),
       episode:      (video.episodeNumber ? parseInt(video.episodeNumber, 10)              : 0),
