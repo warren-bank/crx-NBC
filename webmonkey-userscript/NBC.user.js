@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NBC
 // @description  Watch videos in external player.
-// @version      1.0.4
+// @version      1.0.5
 // @match        *://nbc.com/*
 // @match        *://*.nbc.com/*
 // @icon         https://www.nbc.com/generetic/favicon.ico
@@ -496,6 +496,43 @@ var process_dash_url = function(video_url, caption_url, referer_url) {
 }
 
 // ----------------------------------------------------------------------------- process video
+
+// ------------------------------------- helper:
+
+var inspect_video_dom = function() {
+  var regex, scripts, script, matches, contentPid, mpxAccountId
+
+  regex = {
+    contentPid:   /,\s*contentPid:\s*"([^"]+)"/,
+    mpxAccountId: /"mpxAccountId":\s*"([^"]+)"/
+  }
+
+  scripts = unsafeWindow.document.querySelectorAll('script:not([src])')
+  for (var i=0; i < scripts.length; i++) {
+    script = scripts[i]
+    script = script.innerText
+
+    if (!contentPid) {
+      matches = regex.contentPid.exec(script)
+      if (matches && matches.length) {
+        contentPid = matches[1]
+      }
+    }
+
+    if (!mpxAccountId) {
+      matches = regex.mpxAccountId.exec(script)
+      if (matches && matches.length) {
+        mpxAccountId = matches[1]
+      }
+    }
+
+    if (contentPid && mpxAccountId) break
+  }
+
+  return {contentPid: contentPid, mpxAccountId: mpxAccountId}
+}
+
+// -------------------------------------
 
 var process_video = function(contentPid, mpxAccountId, mpxGuid) {
   download_video_url(contentPid, mpxAccountId, mpxGuid, process_video_url)
@@ -1015,7 +1052,9 @@ var init = function() {
   if (matches && matches.length) {
     mpxGuid = matches[1]
 
-    process_video(/* contentPid= */ null, /* mpxAccountId= */ null, mpxGuid)
+    matches = inspect_video_dom()
+
+    process_video(matches.contentPid, matches.mpxAccountId, mpxGuid)
     return
   }
 
