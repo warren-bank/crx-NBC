@@ -1,0 +1,27 @@
+pathname:
+=========
+
+ * /<name>/episodes
+   - graphql query for all episodes in most recent season
+   - while (seasonNumber > 1)
+     * seasonNumber--
+     * graphql query for all episodes in seasonNumber
+   - build SPA
+     * allow user to redirect video for any individual episode to an external player
+       - xhr SMIL data for video:
+          http://link.theplatform.com/s/NnzsPC/media/guid/<mpxAccountId>/<mpxGuid>?format=SMIL&manifest=m3u&Tracking=true&mbr=true
+       - parse HLS video URL
+
+ * /<name>/episodes/season-<seasonNumber>
+   - graphql query for all episodes in seasonNumber
+   - build SPA
+     * allow user to redirect video for any individual episode to an external player
+       - xhr SMIL data for video:
+          http://link.theplatform.com/s/NnzsPC/media/guid/<mpxAccountId>/<mpxGuid>?format=SMIL&manifest=m3u&Tracking=true&mbr=true
+       - parse HLS video URL
+
+ * /<name>/video/<episode-name>/<mpxGuid>
+   - redirect video to an external player
+     * xhr SMIL data for video:
+        http://link.theplatform.com/s/NnzsPC/media/guid/2410887629/<mpxGuid>?format=SMIL&manifest=m3u&Tracking=true&mbr=true
+     * parse HLS video URL

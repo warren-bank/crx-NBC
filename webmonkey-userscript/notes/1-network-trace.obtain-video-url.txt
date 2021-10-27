@@ -1,0 +1,156 @@
+--------------------------------------------------------------------------------
+
+https://www.nbc.com/shows/all/a-z
+
+https://www.nbc.com/chicago-pd
+https://www.nbc.com/chicago-pd/episodes
+https://www.nbc.com/chicago-pd/video/in-the-dark/9000091020
+
+--------------------------------------------------------------------------------
+// view-source:https://www.nbc.com/chicago-pd/video/in-the-dark/9000091020
+
+"seasonNumber":"9","episodeNumber":"4","airDate":"2021-10-13T23:00:00.000Z","rating":"TV-14","copyright":"Universal Television and Wolf Films","locked":false,"programmingType":"Full Episode","genre":"Drama","duration":2522,"mpxGuid":"9000091020","entitlement":"auth",...
+
+"programmingType":"Full Episode","episodeNumber":"4","seasonNumber":"9","mpxGuid":"9000091020","locked":false,"duration":2522,...
+
+MPX:{pid:"jujdhC",contentPid:"NnzsPC",playerName:"xkaAQrhkr9IU",id:"2410887629",...
+
+--------------------------------------------------------------------------------
+
+https://github.com/ytdl-org/youtube-dl/blob/master/youtube_dl/extractor/nbc.py
+
+http://link.theplatform.com/s/NnzsPC/media/guid/2410887629/9000091020
+http://link.theplatform.com/s/NnzsPC/media/guid/2410887629/9000091020?format=SMIL&manifest=m3u&Tracking=true&mbr=true
+
+--------------------------------------------------------------------------------
+// curl "http://link.theplatform.com/s/NnzsPC/media/guid/2410887629/9000091020?format=SMIL&manifest=m3u&Tracking=true&mbr=true"
+
+<smil xmlns="http://www.w3.org/2005/SMIL21/Language">
+<head>
+	<meta name="refreshToken" content="017cb1e392b4e11622399f9b72b7ae57e70880f29920b2372f680e0d2c135b0834613982deca"/>
+</head>
+<body>
+<seq>
+<par>
+	<video src="https://nbcmpx-vh.akamaihd.net/i/prod/video/YBr/hsY/9000091020/NVn3MuipEoW9TrrSDCjXb/HD_TVE_CHICAGOPD_10132021_,35,783,483,300,185,86,0k.mp4.csmil/master.m3u8?hdnea=st=1635066973~exp=1635079603~acl=/i/prod/video/YBr/hsY/9000091020/NVn3MuipEoW9TrrSDCjXb/HD_TVE_CHICAGOPD_10132021_*~id=c61d85ac-0963-4ec8-974f-c7da0d270d5f~hmac=5a6c56bde2241514c5d6cd05a904e8e406c04ecacc6baadab73526fb1aa1c95a" title="In the Dark" abstract="When Upton and Ruzek answer an emergency call to an abandoned house, their investigation leads them down a dark path." dur="2525317ms" guid="9000091020" categories="Series/Chicago P.D." keywords="chicago pd,jason beghe,hank voight,patrick john flueger,ruzek,laroyce hawkins,atwater,jon seda,antonio,jesse lee soffer,halstead,marina squerciati,burgess,amy morton,tracy spiridakos,upton,intelligence unit,one chicago,season 9,episode 4" ratings="urn%3Av-chip:tv-14%20l%2C%20v%2C%20d" provider="NBC Entertainment" type="application/x-mpegURL" height="288" width="512" clipBegin="0:00" clipEnd="10:15.042">
+		<param name="airDate" value="1634166000000"/>
+		<param name="airOrder" value="4"/>
+		<param name="dayPart" value="Primetime"/>
+		<param name="entitlement" value="free"/>
+		<param name="episodeTmsId" value="EP017387030178"/>
+		<param name="externalAdvertiserId" value="NBC_VOD_9000091020"/>
+		<param name="fullEpisode" value="true"/>
+		<param name="permalink" value=""/>
+		<param name="primaryCategory[0]" value="Drama"/>
+		<param name="programmingType" value="Full Episode"/>
+		<param name="seasonNumber" value="9"/>
+		<param name="seriesShortTitle" value="Chicago PD"/>
+		<param name="seriesTmsId" value="SH017387030000"/>
+		<param name="shortTitle" value="In the Dark"/>
+		<param name="tuneInTime" value="Wednesdays 10/9c"/>
+		<param name="trackingData" value="aid=2410887629|b=452637|bc=NBCU-COM|br=cURL|ci=1|cid=1961600067548|d=1635067003280|l=2525317|mediaPid=dD2F2FgGdTg2|pd=1634166000000|pid=qY_XZfpV2jCJ|pvid=53468227687|rid=1961674819753"/>
+	</video>
+	<textstream src="http://mpxstatic-nbcmpx.nbcuni.com/caption/904/618/TLVOD-0000082411-GTMV0000570672-109023_Text1.tt" lang="en" type="application/smptett+xml"/>
+	<imagestream src="http://mpxstatic-nbcmpx.nbcuni.com/image/904/618/HD_TVE_CHICAGOPD_10132021_860k.fs" width="190" height="107" type="application/filmstrip+json"/>
+</par>
+<par>
+	<video src="https://nbcmpx-vh.akamaihd.net/i/prod/video/YBr/hsY/9000091020/NVn3MuipEoW9TrrSDCjXb/HD_TVE_CHICAGOPD_10132021_,35,783,483,300,185,86,0k.mp4.csmil/master.m3u8?hdnea=st=1635066973~exp=1635079603~acl=/i/prod/video/YBr/hsY/9000091020/NVn3MuipEoW9TrrSDCjXb/HD_TVE_CHICAGOPD_10132021_*~id=c61d85ac-0963-4ec8-974f-c7da0d270d5f~hmac=5a6c56bde2241514c5d6cd05a904e8e406c04ecacc6baadab73526fb1aa1c95a" title="In the Dark" abstract="When Upton and Ruzek answer an emergency call to an abandoned house, their investigation leads them down a dark path." dur="2525317ms" guid="9000091020" categories="Series/Chicago P.D." keywords="chicago pd,jason beghe,hank voight,patrick john flueger,ruzek,laroyce hawkins,atwater,jon seda,antonio,jesse lee soffer,halstead,marina squerciati,burgess,amy morton,tracy spiridakos,upton,intelligence unit,one chicago,season 9,episode 4" ratings="urn%3Av-chip:tv-14%20l%2C%20v%2C%20d" provider="NBC Entertainment" type="application/x-mpegURL" height="288" width="512" clipBegin="10:15.042" clipEnd="18:16">
+		<param name="airDate" value="1634166000000"/>
+		<param name="airOrder" value="4"/>
+		<param name="dayPart" value="Primetime"/>
+		<param name="entitlement" value="free"/>
+		<param name="episodeTmsId" value="EP017387030178"/>
+		<param name="externalAdvertiserId" value="NBC_VOD_9000091020"/>
+		<param name="fullEpisode" value="true"/>
+		<param name="permalink" value=""/>
+		<param name="primaryCategory[0]" value="Drama"/>
+		<param name="programmingType" value="Full Episode"/>
+		<param name="seasonNumber" value="9"/>
+		<param name="seriesShortTitle" value="Chicago PD"/>
+		<param name="seriesTmsId" value="SH017387030000"/>
+		<param name="shortTitle" value="In the Dark"/>
+		<param name="tuneInTime" value="Wednesdays 10/9c"/>
+		<param name="trackingData" value="aid=2410887629|b=452637|bc=NBCU-COM|br=cURL|ci=1|cid=1961600067548|d=1635067003280|l=2525317|mediaPid=dD2F2FgGdTg2|pd=1634166000000|pid=qY_XZfpV2jCJ|pvid=53468227687|rid=1961674819753"/>
+	</video>
+	<textstream src="http://mpxstatic-nbcmpx.nbcuni.com/caption/904/618/TLVOD-0000082411-GTMV0000570672-109023_Text1.tt" lang="en" type="application/smptett+xml"/>
+	<imagestream src="http://mpxstatic-nbcmpx.nbcuni.com/image/904/618/HD_TVE_CHICAGOPD_10132021_860k.fs" width="190" height="107" type="application/filmstrip+json"/>
+</par>
+<par>
+	<video src="https://nbcmpx-vh.akamaihd.net/i/prod/video/YBr/hsY/9000091020/NVn3MuipEoW9TrrSDCjXb/HD_TVE_CHICAGOPD_10132021_,35,783,483,300,185,86,0k.mp4.csmil/master.m3u8?hdnea=st=1635066973~exp=1635079603~acl=/i/prod/video/YBr/hsY/9000091020/NVn3MuipEoW9TrrSDCjXb/HD_TVE_CHICAGOPD_10132021_*~id=c61d85ac-0963-4ec8-974f-c7da0d270d5f~hmac=5a6c56bde2241514c5d6cd05a904e8e406c04ecacc6baadab73526fb1aa1c95a" title="In the Dark" abstract="When Upton and Ruzek answer an emergency call to an abandoned house, their investigation leads them down a dark path." dur="2525317ms" guid="9000091020" categories="Series/Chicago P.D." keywords="chicago pd,jason beghe,hank voight,patrick john flueger,ruzek,laroyce hawkins,atwater,jon seda,antonio,jesse lee soffer,halstead,marina squerciati,burgess,amy morton,tracy spiridakos,upton,intelligence unit,one chicago,season 9,episode 4" ratings="urn%3Av-chip:tv-14%20l%2C%20v%2C%20d" provider="NBC Entertainment" type="application/x-mpegURL" height="288" width="512" clipBegin="18:16" clipEnd="26:28.042">
+		<param name="airDate" value="1634166000000"/>
+		<param name="airOrder" value="4"/>
+		<param name="dayPart" value="Primetime"/>
+		<param name="entitlement" value="free"/>
+		<param name="episodeTmsId" value="EP017387030178"/>
+		<param name="externalAdvertiserId" value="NBC_VOD_9000091020"/>
+		<param name="fullEpisode" value="true"/>
+		<param name="permalink" value=""/>
+		<param name="primaryCategory[0]" value="Drama"/>
+		<param name="programmingType" value="Full Episode"/>
+		<param name="seasonNumber" value="9"/>
+		<param name="seriesShortTitle" value="Chicago PD"/>
+		<param name="seriesTmsId" value="SH017387030000"/>
+		<param name="shortTitle" value="In the Dark"/>
+		<param name="tuneInTime" value="Wednesdays 10/9c"/>
+		<param name="trackingData" value="aid=2410887629|b=452637|bc=NBCU-COM|br=cURL|ci=1|cid=1961600067548|d=1635067003280|l=2525317|mediaPid=dD2F2FgGdTg2|pd=1634166000000|pid=qY_XZfpV2jCJ|pvid=53468227687|rid=1961674819753"/>
+	</video>
+	<textstream src="http://mpxstatic-nbcmpx.nbcuni.com/caption/904/618/TLVOD-0000082411-GTMV0000570672-109023_Text1.tt" lang="en" type="application/smptett+xml"/>
+	<imagestream src="http://mpxstatic-nbcmpx.nbcuni.com/image/904/618/HD_TVE_CHICAGOPD_10132021_860k.fs" width="190" height="107" type="application/filmstrip+json"/>
+</par>
+<par>
+	<video src="https://nbcmpx-vh.akamaihd.net/i/prod/video/YBr/hsY/9000091020/NVn3MuipEoW9TrrSDCjXb/HD_TVE_CHICAGOPD_10132021_,35,783,483,300,185,86,0k.mp4.csmil/master.m3u8?hdnea=st=1635066973~exp=1635079603~acl=/i/prod/video/YBr/hsY/9000091020/NVn3MuipEoW9TrrSDCjXb/HD_TVE_CHICAGOPD_10132021_*~id=c61d85ac-0963-4ec8-974f-c7da0d270d5f~hmac=5a6c56bde2241514c5d6cd05a904e8e406c04ecacc6baadab73526fb1aa1c95a" title="In the Dark" abstract="When Upton and Ruzek answer an emergency call to an abandoned house, their investigation leads them down a dark path." dur="2525317ms" guid="9000091020" categories="Series/Chicago P.D." keywords="chicago pd,jason beghe,hank voight,patrick john flueger,ruzek,laroyce hawkins,atwater,jon seda,antonio,jesse lee soffer,halstead,marina squerciati,burgess,amy morton,tracy spiridakos,upton,intelligence unit,one chicago,season 9,episode 4" ratings="urn%3Av-chip:tv-14%20l%2C%20v%2C%20d" provider="NBC Entertainment" type="application/x-mpegURL" height="288" width="512" clipBegin="26:28.042" clipEnd="32:37.042">
+		<param name="airDate" value="1634166000000"/>
+		<param name="airOrder" value="4"/>
+		<param name="dayPart" value="Primetime"/>
+		<param name="entitlement" value="free"/>
+		<param name="episodeTmsId" value="EP017387030178"/>
+		<param name="externalAdvertiserId" value="NBC_VOD_9000091020"/>
+		<param name="fullEpisode" value="true"/>
+		<param name="permalink" value=""/>
+		<param name="primaryCategory[0]" value="Drama"/>
+		<param name="programmingType" value="Full Episode"/>
+		<param name="seasonNumber" value="9"/>
+		<param name="seriesShortTitle" value="Chicago PD"/>
+		<param name="seriesTmsId" value="SH017387030000"/>
+		<param name="shortTitle" value="In the Dark"/>
+		<param name="tuneInTime" value="Wednesdays 10/9c"/>
+		<param name="trackingData" value="aid=2410887629|b=452637|bc=NBCU-COM|br=cURL|ci=1|cid=1961600067548|d=1635067003280|l=2525317|mediaPid=dD2F2FgGdTg2|pd=1634166000000|pid=qY_XZfpV2jCJ|pvid=53468227687|rid=1961674819753"/>
+	</video>
+	<textstream src="http://mpxstatic-nbcmpx.nbcuni.com/caption/904/618/TLVOD-0000082411-GTMV0000570672-109023_Text1.tt" lang="en" type="application/smptett+xml"/>
+	<imagestream src="http://mpxstatic-nbcmpx.nbcuni.com/image/904/618/HD_TVE_CHICAGOPD_10132021_860k.fs" width="190" height="107" type="application/filmstrip+json"/>
+</par>
+<par>
+	<video src="https://nbcmpx-vh.akamaihd.net/i/prod/video/YBr/hsY/9000091020/NVn3MuipEoW9TrrSDCjXb/HD_TVE_CHICAGOPD_10132021_,35,783,483,300,185,86,0k.mp4.csmil/master.m3u8?hdnea=st=1635066973~exp=1635079603~acl=/i/prod/video/YBr/hsY/9000091020/NVn3MuipEoW9TrrSDCjXb/HD_TVE_CHICAGOPD_10132021_*~id=c61d85ac-0963-4ec8-974f-c7da0d270d5f~hmac=5a6c56bde2241514c5d6cd05a904e8e406c04ecacc6baadab73526fb1aa1c95a" title="In the Dark" abstract="When Upton and Ruzek answer an emergency call to an abandoned house, their investigation leads them down a dark path." dur="2525317ms" guid="9000091020" categories="Series/Chicago P.D." keywords="chicago pd,jason beghe,hank voight,patrick john flueger,ruzek,laroyce hawkins,atwater,jon seda,antonio,jesse lee soffer,halstead,marina squerciati,burgess,amy morton,tracy spiridakos,upton,intelligence unit,one chicago,season 9,episode 4" ratings="urn%3Av-chip:tv-14%20l%2C%20v%2C%20d" provider="NBC Entertainment" type="application/x-mpegURL" height="288" width="512" clipBegin="32:37.042">
+		<param name="airDate" value="1634166000000"/>
+		<param name="airOrder" value="4"/>
+		<param name="dayPart" value="Primetime"/>
+		<param name="entitlement" value="free"/>
+		<param name="episodeTmsId" value="EP017387030178"/>
+		<param name="externalAdvertiserId" value="NBC_VOD_9000091020"/>
+		<param name="fullEpisode" value="true"/>
+		<param name="permalink" value=""/>
+		<param name="primaryCategory[0]" value="Drama"/>
+		<param name="programmingType" value="Full Episode"/>
+		<param name="seasonNumber" value="9"/>
+		<param name="seriesShortTitle" value="Chicago PD"/>
+		<param name="seriesTmsId" value="SH017387030000"/>
+		<param name="shortTitle" value="In the Dark"/>
+		<param name="tuneInTime" value="Wednesdays 10/9c"/>
+		<param name="trackingData" value="aid=2410887629|b=452637|bc=NBCU-COM|br=cURL|ci=1|cid=1961600067548|d=1635067003280|l=2525317|mediaPid=dD2F2FgGdTg2|pd=1634166000000|pid=qY_XZfpV2jCJ|pvid=53468227687|rid=1961674819753"/>
+	</video>
+	<textstream src="http://mpxstatic-nbcmpx.nbcuni.com/caption/904/618/TLVOD-0000082411-GTMV0000570672-109023_Text1.tt" lang="en" type="application/smptett+xml"/>
+	<imagestream src="http://mpxstatic-nbcmpx.nbcuni.com/image/904/618/HD_TVE_CHICAGOPD_10132021_860k.fs" width="190" height="107" type="application/filmstrip+json"/>
+</par>
+</seq>
+</body>
+</smil>
+
+--------------------------------------------------------------------------------
+
+HLS URL:
+  https://nbcmpx-vh.akamaihd.net/i/prod/video/YBr/hsY/9000091020/NVn3MuipEoW9TrrSDCjXb/HD_TVE_CHICAGOPD_10132021_,35,783,483,300,185,86,0k.mp4.csmil/master.m3u8?hdnea=st=1635066973~exp=1635079603~acl=/i/prod/video/YBr/hsY/9000091020/NVn3MuipEoW9TrrSDCjXb/HD_TVE_CHICAGOPD_10132021_*~id=c61d85ac-0963-4ec8-974f-c7da0d270d5f~hmac=5a6c56bde2241514c5d6cd05a904e8e406c04ecacc6baadab73526fb1aa1c95a
+
+result:
+* plays on Chromecast w/o Referer header or any DRM license
+
+--------------------------------------------------------------------------------
