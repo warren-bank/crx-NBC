@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NBC
 // @description  Watch videos in external player.
-// @version      1.0.1
+// @version      1.0.2
 // @match        *://nbc.com/*
 // @match        *://*.nbc.com/*
 // @icon         https://www.nbc.com/generetic/favicon.ico
@@ -20,7 +20,8 @@
 
 var user_options = {
   "common": {
-    "rewrite_show_pages":           true
+    "rewrite_show_pages":           true,
+    "sort_newest_first":            true
   },
   "webmonkey": {
     "post_intent_redirect_to_url":  "about:blank"
@@ -922,8 +923,10 @@ var process_episodes = function(episodes) {
     return
   }
 
-  // sort episodes in ascending order
-  episodes.reverse()
+  // optionally: sort episodes in ascending chronological order
+  if (!user_options.common.sort_newest_first) {
+    episodes.reverse()
+  }
 
   // rename video attributes
   episodes = episodes.map(function(video) {
