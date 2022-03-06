@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NBC
 // @description  Watch videos in external player.
-// @version      1.0.8
+// @version      1.0.9
 // @match        *://nbc.com/*
 // @match        *://*.nbc.com/*
 // @icon         https://www.nbc.com/generetic/favicon.ico
@@ -20,6 +20,7 @@
 
 var user_options = {
   "common": {
+    "redirect_to_show_pages":       true,
     "rewrite_show_pages":           true,
     "sort_newest_first":            true
   },
@@ -615,7 +616,7 @@ var reinitialize_dom = function() {
       // --------------------------------------------------- CSS: global
 
       'body {',
-      '  background-color: #fff;',
+      '  background-color: #fff !important;',
       '  text-align: left;',
       '}',
 
@@ -1016,6 +1017,28 @@ var rewrite_show_page = function(show_name, season_number) {
     download_all_episodes(show_name, process_episodes)
 }
 
+// ----------------------------------------------------------------------------- redirect show page to episodes list
+
+var redirect_to_show_page = function() {
+  if (!user_options.common.redirect_to_show_pages) return
+
+  var json, loc, url
+
+  try {
+    json = unsafeWindow.document.querySelector('script[type="application/ld+json"]').innerText
+    json = JSON.parse(json)
+
+    if (!(json instanceof Object) || (typeof json.numberOfEpisodes !== 'number') || (json.numberOfEpisodes <= 1)) throw ''
+  }
+  catch(e) {
+    return
+  }
+
+  loc = unsafeWindow.location
+  url = loc.protocol + '//' + loc.host + loc.pathname + '/episodes'
+  redirect_to_url(url)
+}
+
 // ----------------------------------------------------------------------------- bootstrap
 
 /*
@@ -1085,6 +1108,8 @@ var init = function() {
     rewrite_show_page(show_name, season_number)
     return
   }
+
+  redirect_to_show_page()
 }
 
 init()
